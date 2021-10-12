@@ -1,5 +1,6 @@
 //This is for Educational Purposes Only
 pragma solidity ^0.8.8;
+//Chainlink Github
 import "https://github.com/smartcontractkit/chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 
 
@@ -11,11 +12,12 @@ contract Lottery is ChainlinkClient {
         address Chainlink_Oracle_Alarm = 0xAA1DC356dc4B18f30C347798FD5379F3D77ABC5b;
         bytes32 Chainlink_Alarm_JobId = "982105d690504c5d9ce374d040c08654";
         
-        //Defines Entry Costs as  .002 ether (~8.75 USD as of 10/12/2021)
+        //Defines Entry Costs as .0025 ether (~8.75 USD as of 10/12/2021)
+        //This value can be changed to whatever entry costs are required
         uint256 Minimum_requirement=.0025 ether;
         
-        //Defines Lottery Winnings as (~17.50 USD as of 10/12/2021)
-        uint256 Payment_from_Oracle=.005 ether;
+        //Defines Gas/Transactional Fees to use Oracle Nodes(.1 LINK=0.00070023 Ether)
+        uint256 Payment_to_Oracle= 0.00070023 ether;
         
         //Defines lottery states as open, closed,or calculating
         enum Lottery_state { Open, Closed, Calculating }
@@ -27,19 +29,19 @@ contract Lottery is ChainlinkClient {
         address payable[] public players;
     
         //Counts how many Lotteries have been played
-        uint256 public LotteryId;
+        uint256 public LotteryCount;
     
     
-    //sets intial values for variables
+    //Sets initial values for variables
     constructor() public
     {
         //Required to connect with Chainlink Oracles
         setPublicChainlinkToken();
     
         //First Lottery
-        LotteryId=1;
+        LotteryCount=1;
     
-        //Sets Lottery Stateas Closed
+        //Sets Lottery State as Closed
         Lottery_Status=Lottery_state.Closed;
     }
     
@@ -69,14 +71,23 @@ contract Lottery is ChainlinkClient {
     }
     
     
-    //Function to stop player enteries and intiate the PickWinner() function
-    function fulfill_alarm(bytes32 _requestId) 
+    //Function to stop player enteries and initiate the PickWinner() function
+    function fulfill_alarm(bytes32 _requestId)
+    
+        //Ensures that the request is valid and viewable externally 
         public  
         recordChainlinkFulfillment(_requestId)
             {
+                //Checks that Lottery is Calculating Winner   
                 require(Lottery_Status==Lottery_state.Open);
+                
+                //Changes Lottery Status to Calculating
                 Lottery_Status=Lottery_state.Calculating;
-                LotteryId=LotteryId + 1;
+                
+                //Increases the Completed Lottery Count by 1 
+                LotteryCount=LotteryCount + 1;
+                
+                //Initiates PickWinner() function
                 PickWinner();
                 
             }
@@ -93,8 +104,12 @@ contract Lottery is ChainlinkClient {
         
         //Connects to Chainlink Alarm
         Chainlink.Request memory req = buildChainlinkRequest(Chainlink_Alarm_JobId, address(this), this.fulfill_alarm.selector);
+        
+        //
         req.addUint("until", now + duration);
-        sendChainlinkRequestTo(Chainlink_Oracle_Alarm,req,Payment_from_Oracle);
+        
+        //Sends the Chainlink Request to The Chainlink Alarm, and sends associated Gas/Transactional fees)
+        sendChainlinkRequestTo(Chainlink_Oracle_Alarm,req,Payment_to_Oracle);
     
     
     }
