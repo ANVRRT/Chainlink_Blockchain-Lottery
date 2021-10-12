@@ -3,6 +3,9 @@ pragma solidity ^0.8.8;
 //Chainlink Github
 import "https://github.com/smartcontractkit/chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 
+import {VRF_Random} from "./Interfaces/ChainlinkLotteryInterfaces.sol";
+import {ChainlinkGovernance} from "./Interfaces/ChainlinkLotteryInterfaces.sol";
+
 
 //Lottery contract inherits from the ChainlinkClient contract
 contract Lottery is ChainlinkClient {
@@ -53,7 +56,7 @@ contract Lottery is ChainlinkClient {
         assert(msg.value == Minimum_requirement);
         
         //Checks that Lottery is open
-        assert(Lottery_Status==Lottery_state.Open);
+        assert(Lottery_Status == Lottery_state.Open);
         
         //adds new player to the existing Player list
         players.push(msg.sender);
@@ -67,7 +70,7 @@ contract Lottery is ChainlinkClient {
         require(Lottery_Status==Lottery_state.Calculating);
         
         //Uses Chainlink VRF function in ChainlinkLotteryGovernance.sol to generate randomness
-        VRFRandom(ChainlinkLotteryGovernance.randomness()).getRandom(lotteryId,lotteryId);
+        VRF_Random(ChainlinkGovernance.randomness()).getRandom(LotteryCount,LotteryCount);
     }
     
     
@@ -105,7 +108,7 @@ contract Lottery is ChainlinkClient {
         //Connects to Chainlink Alarm
         Chainlink.Request memory req = buildChainlinkRequest(Chainlink_Alarm_JobId, address(this), this.fulfill_alarm.selector);
         
-        //
+        //returns fulfill_alarm function after now + duration amount of time
         req.addUint("until", now + duration);
         
         //Sends the Chainlink Request to The Chainlink Alarm, and sends associated Gas/Transactional fees)
