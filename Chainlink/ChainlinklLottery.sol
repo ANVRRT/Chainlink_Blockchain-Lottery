@@ -115,7 +115,7 @@ contract Lottery is ChainlinkClient {
             }
      
      
-    //Function to start new lottery and         
+    //Function to start new lottery and  send Alarm Request to Oracle       
     function start_Lottery(uint256 duration) public {
         
         //Ensures previous lottery is closed
