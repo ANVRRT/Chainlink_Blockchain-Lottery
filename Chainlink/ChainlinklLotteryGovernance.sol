@@ -1,4 +1,5 @@
-pragma solidity ^0.8.8;
+//This is for Educational Purposes Only
+pragma solidity ^0.6.6;
 
 //Everytime a lottery is done,ChainlinkGovernance contract ensures that random numbers are generated only once per lottery
 contract ChainlinkGovernance {
