@@ -6,7 +6,7 @@ import "https://github.com/smartcontractkit/chainlink/contracts/src/v0.6/Chainli
 
 //Import ChainlinkRandomness_Interface.sol and ChainlinkGovernance_Interface.sol
 import {VRF_Random} from "./Interfaces/ChainlinkRandomness_Interface.sol";
-import {ChainlinkGovernance} from "./Interfaces/ChainlinkGovernance_Interface.sol";
+import {ChainlinkGovernance_Interface} from "./Interfaces/ChainlinkGovernance_Interface.sol";
 
 
 //Lottery contract inherits from the ChainlinkClient contract
@@ -31,7 +31,7 @@ contract Lottery is ChainlinkClient {
         Lottery_state public Lottery_Status;
         
         //displays interfaces 
-        ChainlinkGovernance public governance;
+        ChainlinkGovernance_Interface public governance;
     
         //Creates a list for Players to join
         address payable[] public players;
@@ -52,7 +52,7 @@ contract Lottery is ChainlinkClient {
         //Sets Lottery State as Closed
         Lottery_Status=Lottery_state.Closed;
         
-        governance = ChainlinkGovernance(_governance);
+        governance = ChainlinkGovernance_Interface(_governance);
     }
     
     
