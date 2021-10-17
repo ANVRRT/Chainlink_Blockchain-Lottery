@@ -27,14 +27,14 @@
     "absolutePath": "project:/contracts/Interfaces/ChainlinkLottery_Interface.sol",
     "exportedSymbols": {
       "get_Lottery": [
-        2603
+        2614
       ]
     },
-    "id": 2604,
+    "id": 2615,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2597,
+        "id": 2608,
         "literals": [
           "solidity",
           "^",
@@ -51,9 +51,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2603,
+        "id": 2614,
         "linearizedBaseContracts": [
-          2603
+          2614
         ],
         "name": "get_Lottery",
         "nodeType": "ContractDefinition",
@@ -62,7 +62,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "c251ebf2",
-            "id": 2602,
+            "id": 2613,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -70,17 +70,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 2600,
+              "id": 2611,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2599,
+                  "id": 2610,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 2602,
+                  "scope": 2613,
                   "src": "165:4:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -89,7 +89,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2598,
+                    "id": 2609,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "165:4:16",
@@ -105,19 +105,19 @@
               "src": "164:6:16"
             },
             "returnParameters": {
-              "id": 2601,
+              "id": 2612,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "179:0:16"
             },
-            "scope": 2603,
+            "scope": 2614,
             "src": "141:39:16",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2604,
+        "scope": 2615,
         "src": "113:70:16"
       }
     ],
@@ -128,7 +128,7 @@
       "absolutePath": "project:/contracts/Interfaces/ChainlinkLottery_Interface.sol",
       "exportedSymbols": {
         "get_Lottery": [
-          2603
+          2614
         ]
       }
     },
@@ -142,7 +142,7 @@
             ".6"
           ]
         },
-        "id": 2597,
+        "id": 2608,
         "name": "PragmaDirective",
         "src": "41:23:16"
       },
@@ -159,10 +159,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            2603
+            2614
           ],
           "name": "get_Lottery",
-          "scope": 2604
+          "scope": 2615
         },
         "children": [
           {
@@ -178,7 +178,7 @@
               ],
               "name": "fulfill_random",
               "overrides": null,
-              "scope": 2603,
+              "scope": 2614,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -192,7 +192,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 2602,
+                      "scope": 2613,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -205,17 +205,17 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 2598,
+                        "id": 2609,
                         "name": "ElementaryTypeName",
                         "src": "165:4:16"
                       }
                     ],
-                    "id": 2599,
+                    "id": 2610,
                     "name": "VariableDeclaration",
                     "src": "165:4:16"
                   }
                 ],
-                "id": 2600,
+                "id": 2611,
                 "name": "ParameterList",
                 "src": "164:6:16"
               },
@@ -226,22 +226,22 @@
                   ]
                 },
                 "children": [],
-                "id": 2601,
+                "id": 2612,
                 "name": "ParameterList",
                 "src": "179:0:16"
               }
             ],
-            "id": 2602,
+            "id": 2613,
             "name": "FunctionDefinition",
             "src": "141:39:16"
           }
         ],
-        "id": 2603,
+        "id": 2614,
         "name": "ContractDefinition",
         "src": "113:70:16"
       }
     ],
-    "id": 2604,
+    "id": 2615,
     "name": "SourceUnit",
     "src": "41:142:16"
   },
@@ -251,7 +251,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-16T04:41:14.351Z",
+  "updatedAt": "2021-10-17T02:45:36.958Z",
   "devdoc": {
     "methods": {}
   },

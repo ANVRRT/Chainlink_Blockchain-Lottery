@@ -3,7 +3,7 @@
   "abi": [
     {
       "inputs": [],
-      "name": "randomness",
+      "name": "lottery",
       "outputs": [
         {
           "internalType": "address",
@@ -16,7 +16,7 @@
     },
     {
       "inputs": [],
-      "name": "lottery",
+      "name": "randomness",
       "outputs": [
         {
           "internalType": "address",
@@ -28,26 +28,26 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"lottery\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"randomness\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Interfaces/ChainlinkGovernance_Interface.sol\":\"ChainlinkGovernance_Interface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Interfaces/ChainlinkGovernance_Interface.sol\":{\"keccak256\":\"0xf7dbdc66c679676b1900e332f6d606130562eae3b205f1075168eb3ed9d10300\",\"urls\":[\"bzz-raw://33e46c5577b1dbb2ab4dfbf5b176c3dfe9cddad1bb94f2783f9e931a927afd5a\",\"dweb:/ipfs/QmUtoLaeBTW7TbeDUZWFqmRbnA1vwcZeJh475aV3pWdboR\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"lottery\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"randomness\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Interfaces/ChainlinkGovernance_Interface.sol\":\"ChainlinkGovernance_Interface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Interfaces/ChainlinkGovernance_Interface.sol\":{\"keccak256\":\"0xd3d29f999d1daa23d9af7d471cc4a6a05b69a7bcbaf6812e0a87d8d6a6d5c552\",\"urls\":[\"bzz-raw://2d09b5e5c1fc0271f7013dbc599f84673f5930a063d57ba046a8810a51cbeba3\",\"dweb:/ipfs/Qmacu3v9zHiasw9SxMmtuYZwwHgZT7b3DmdBEFMBPmNVWd\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "//This is for Educational Purposes Only\r\npragma solidity ^0.6.6;\r\n\r\n//External interface for Governance\r\ninterface ChainlinkGovernance_Interface {\r\n    function randomness() external view returns(address);\r\n    function lottery() external view returns(address);\r\n}",
+  "source": "//This is for Educational Purposes Only\r\npragma solidity ^0.6.6;\r\n\r\n//External interface for Governance\r\ninterface ChainlinkGovernance_Interface {\r\n    function lottery() external view returns(address);\r\n    function randomness() external view returns(address);\r\n}",
   "sourcePath": "C:\\Users\\User\\Documents\\Solidity_Projects\\Chainlink_Project\\contracts\\Interfaces\\ChainlinkGovernance_Interface.sol",
   "ast": {
     "absolutePath": "project:/contracts/Interfaces/ChainlinkGovernance_Interface.sol",
     "exportedSymbols": {
       "ChainlinkGovernance_Interface": [
-        2595
+        2606
       ]
     },
-    "id": 2596,
+    "id": 2607,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2584,
+        "id": 2595,
         "literals": [
           "solidity",
           "^",
@@ -64,9 +64,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2595,
+        "id": 2606,
         "linearizedBaseContracts": [
-          2595
+          2606
         ],
         "name": "ChainlinkGovernance_Interface",
         "nodeType": "ContractDefinition",
@@ -74,33 +74,33 @@
           {
             "body": null,
             "documentation": null,
-            "functionSelector": "36013189",
-            "id": 2589,
+            "functionSelector": "ba13a572",
+            "id": 2600,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "randomness",
+            "name": "lottery",
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 2585,
+              "id": 2596,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "171:2:15"
+              "src": "168:2:15"
             },
             "returnParameters": {
-              "id": 2588,
+              "id": 2599,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2587,
+                  "id": 2598,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 2589,
-                  "src": "196:7:15",
+                  "scope": 2600,
+                  "src": "193:7:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -108,10 +108,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2586,
+                    "id": 2597,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "196:7:15",
+                    "src": "193:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -122,10 +122,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "195:9:15"
+              "src": "192:9:15"
             },
-            "scope": 2595,
-            "src": "152:53:15",
+            "scope": 2606,
+            "src": "152:50:15",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -133,32 +133,32 @@
           {
             "body": null,
             "documentation": null,
-            "functionSelector": "ba13a572",
-            "id": 2594,
+            "functionSelector": "36013189",
+            "id": 2605,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "lottery",
+            "name": "randomness",
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 2590,
+              "id": 2601,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "227:2:15"
             },
             "returnParameters": {
-              "id": 2593,
+              "id": 2604,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2592,
+                  "id": 2603,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 2594,
+                  "scope": 2605,
                   "src": "252:7:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -167,7 +167,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2591,
+                    "id": 2602,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "252:7:15",
@@ -183,14 +183,14 @@
               ],
               "src": "251:9:15"
             },
-            "scope": 2595,
-            "src": "211:50:15",
+            "scope": 2606,
+            "src": "208:53:15",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2596,
+        "scope": 2607,
         "src": "105:159:15"
       }
     ],
@@ -201,7 +201,7 @@
       "absolutePath": "project:/contracts/Interfaces/ChainlinkGovernance_Interface.sol",
       "exportedSymbols": {
         "ChainlinkGovernance_Interface": [
-          2595
+          2606
         ]
       }
     },
@@ -215,7 +215,7 @@
             ".6"
           ]
         },
-        "id": 2584,
+        "id": 2595,
         "name": "PragmaDirective",
         "src": "41:23:15"
       },
@@ -232,83 +232,12 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            2595
+            2606
           ],
           "name": "ChainlinkGovernance_Interface",
-          "scope": 2596
+          "scope": 2607
         },
         "children": [
-          {
-            "attributes": {
-              "body": null,
-              "documentation": null,
-              "functionSelector": "36013189",
-              "implemented": false,
-              "isConstructor": false,
-              "kind": "function",
-              "modifiers": [
-                null
-              ],
-              "name": "randomness",
-              "overrides": null,
-              "scope": 2595,
-              "stateMutability": "view",
-              "virtual": false,
-              "visibility": "external"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 2585,
-                "name": "ParameterList",
-                "src": "171:2:15"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "mutability": "mutable",
-                      "name": "",
-                      "overrides": null,
-                      "scope": 2589,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "stateMutability": "nonpayable",
-                          "type": "address"
-                        },
-                        "id": 2586,
-                        "name": "ElementaryTypeName",
-                        "src": "196:7:15"
-                      }
-                    ],
-                    "id": 2587,
-                    "name": "VariableDeclaration",
-                    "src": "196:7:15"
-                  }
-                ],
-                "id": 2588,
-                "name": "ParameterList",
-                "src": "195:9:15"
-              }
-            ],
-            "id": 2589,
-            "name": "FunctionDefinition",
-            "src": "152:53:15"
-          },
           {
             "attributes": {
               "body": null,
@@ -322,7 +251,7 @@
               ],
               "name": "lottery",
               "overrides": null,
-              "scope": 2595,
+              "scope": 2606,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -335,9 +264,9 @@
                   ]
                 },
                 "children": [],
-                "id": 2590,
+                "id": 2596,
                 "name": "ParameterList",
-                "src": "227:2:15"
+                "src": "168:2:15"
               },
               {
                 "children": [
@@ -347,7 +276,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 2594,
+                      "scope": 2600,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -361,32 +290,103 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 2591,
+                        "id": 2597,
+                        "name": "ElementaryTypeName",
+                        "src": "193:7:15"
+                      }
+                    ],
+                    "id": 2598,
+                    "name": "VariableDeclaration",
+                    "src": "193:7:15"
+                  }
+                ],
+                "id": 2599,
+                "name": "ParameterList",
+                "src": "192:9:15"
+              }
+            ],
+            "id": 2600,
+            "name": "FunctionDefinition",
+            "src": "152:50:15"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "36013189",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "randomness",
+              "overrides": null,
+              "scope": 2606,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2601,
+                "name": "ParameterList",
+                "src": "227:2:15"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 2605,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 2602,
                         "name": "ElementaryTypeName",
                         "src": "252:7:15"
                       }
                     ],
-                    "id": 2592,
+                    "id": 2603,
                     "name": "VariableDeclaration",
                     "src": "252:7:15"
                   }
                 ],
-                "id": 2593,
+                "id": 2604,
                 "name": "ParameterList",
                 "src": "251:9:15"
               }
             ],
-            "id": 2594,
+            "id": 2605,
             "name": "FunctionDefinition",
-            "src": "211:50:15"
+            "src": "208:53:15"
           }
         ],
-        "id": 2595,
+        "id": 2606,
         "name": "ContractDefinition",
         "src": "105:159:15"
       }
     ],
-    "id": 2596,
+    "id": 2607,
     "name": "SourceUnit",
     "src": "41:223:15"
   },
@@ -396,7 +396,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-16T04:41:14.350Z",
+  "updatedAt": "2021-10-17T02:45:36.956Z",
   "devdoc": {
     "methods": {}
   },
