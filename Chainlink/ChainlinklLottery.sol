@@ -12,46 +12,54 @@ import {ChainlinkGovernance_Interface} from "./Interfaces/ChainlinkGovernance_In
 //Lottery contract inherits from the ChainlinkClient contract
 contract Lottery is ChainlinkClient {
     
-        //Sets Chainlink Alarm clocks by connecting them to Kovan Testnet Oracles
-        //Kovan Testnet Website: https://kovan-testnet.github.io/website/
-        address Chainlink_Oracle_Alarm = 0xAA1DC356dc4B18f30C347798FD5379F3D77ABC5b;
-        bytes32 Chainlink_Alarm_JobId = "982105d690504c5d9ce374d040c08654";
-        
-        //Defines Entry Costs as .0025 ether (~8.75 USD as of 10/12/2021)
-        //This value can be changed to whatever entry costs are required
-        uint256 Minimum_requirement=.0025 ether;
-        
-        //Defines Gas/Transactional Fees to use Oracle Nodes(.1 LINK=0.00070023 Ether)
-        uint256 Payment_to_Oracle= 0.1 * 10 ** 18;
-        
         //Defines lottery states as open, closed,or calculating
         enum Lottery_state { Open, Closed, Calculating }
-    
+
         //Displays the state of the lottery externally
         Lottery_state public Lottery_Status;
-        
-        //displays interfaces 
-        ChainlinkGovernance_Interface public governance;
-    
+
+        //Stores enum value of Lottery_state
+        uint256 public LotteryValue;
+
         //Creates a list for Players to join
         address payable[] public players;
-    
-        //Counts how many Lotteries have been played
-        uint256 public LotteryCount;
-    
-    
+
+        //Displays Interfaces 
+        ChainlinkGovernance_Interface public governance;
+        
+        //Defines Entry Costs as .01 ETH
+        //This value can be changed to whatever entry costs are required
+        uint256 Minimum_requirement = 1000000000000000;
+        
+        //Defines Gas/Transactional Fees to use Oracle Nodes as .1 LINK
+        uint256 Payment_to_Oracle=100000000000000000;
+        
+        //Sets Chainlink Alarm clocks by connecting them to Kovan Testnet LINK Token/Oracles
+        //Kovan Testnet Website: https://kovan-testnet.github.io/website/
+        //Uncomment _link if using Kovan Testnet LINK Token
+        //address _link=0xa36085F69e2889c224210F603D836748e7dC0088;
+        address Chainlink_Oracle_Alarm = 0xAA1DC356dc4B18f30C347798FD5379F3D77ABC5b;
+        bytes32 Chainlink_Alarm_JobId = "982105d690504c5d9ce374d040c08654";
+
+
     //Sets initial values for variables
     constructor(address _governance) public
     {
         //Required to connect with Chainlink Oracles
-        setPublicChainlinkToken();
+        //Currently using Main Network LINK Token
+        //setPublicChainlinkToken();
+        
     
-        //First Lottery
-        LotteryCount=1;
+        //If using Kovan Testnet, use setChainlinkToken(_link) instead  
+        //setChainlinkToken(_link);
+
+        //Intializes LotteryValue to Closed (Value {1})
+        LotteryValue=1;
     
         //Sets Lottery State as Closed
         Lottery_Status=Lottery_state.Closed;
         
+        //sets value of Governance for VRF_Random
         governance = ChainlinkGovernance_Interface(_governance);
     }
     
@@ -65,20 +73,18 @@ contract Lottery is ChainlinkClient {
         //Checks that Lottery is open
         assert(Lottery_Status == Lottery_state.Open);
         
-        //adds new player to the existing Player list
+        //Adds new player to the existing Player list
         players.push(msg.sender);
     }
-    
-    
-    //function to display total amount of players 
-    function player_count()public view returns(address payable[] memory){
+
+    //Function to display total amount of players 
+    function player_count() public view returns(address payable[] memory) {
         return players;
     }
-    
-    
-    //function to display toal amount of earnings in a given Lottery
+
+    //Function to display toal amount of earnings in a given Lottery
     function Total() public view returns(uint256){
-        return address (this).balance;
+        return address(this).balance;
     }
     
     
@@ -86,14 +92,13 @@ contract Lottery is ChainlinkClient {
     function PickWinner() private {
         
         //Checks that Lottery is Calculating Winner
-        require(Lottery_Status==Lottery_state.Calculating);
-        
+        require(Lottery_Status==Lottery_state.Calculating,"The Lottery hasn't chosen a winner yet.");
         //Uses Chainlink VRF function in ChainlinkLotteryGovernance.sol to generate randomness
-        VRF_Random(governance.randomness()).getRandom(LotteryCount,LotteryCount);
+        VRF_Random(governance.randomness()).getRandom(LotteryValue,LotteryValue);
     }
     
-    
-    //Function to stop player enteries and initiate the PickWinner() function
+
+      //Function to stop player enteries and initiate the PickWinner() function
     function fulfill_alarm(bytes32 _requestId)
     
         //Ensures that the request is valid and viewable externally 
@@ -101,25 +106,25 @@ contract Lottery is ChainlinkClient {
         recordChainlinkFulfillment(_requestId)
             {
                 //Checks that Lottery is Calculating Winner   
-                require(Lottery_Status==Lottery_state.Open);
+                require(Lottery_Status==Lottery_state.Open,"The Lottery is opening soon!");
                 
                 //Changes Lottery Status to Calculating
                 Lottery_Status=Lottery_state.Calculating;
                 
-                //Increases the Completed Lottery Count by 1 
-                LotteryCount=LotteryCount + 1;
+                //Changes LotteryValue to Calculating (Value {2})
+                LotteryValue=LotteryValue + 1;
                 
                 //Initiates PickWinner() function
                 PickWinner();
                 
             }
+
      
-     
-    //Function to start new lottery and Ssend Alarm Request to Oracle       
+    //Function to start new lottery and send Alarm Request to Oracle       
     function start_Lottery(uint256 duration) public {
         
         //Ensures previous lottery is closed
-        require(Lottery_Status==Lottery_state.Closed);
+        require(Lottery_Status==Lottery_state.Closed,"Lottery opening soon");
         
         //Starts new lottery
         Lottery_Status=Lottery_state.Open;
@@ -133,26 +138,31 @@ contract Lottery is ChainlinkClient {
         //Sends the Chainlink Request to The Chainlink Alarm, and sends associated Gas/Transactional fees)
         sendChainlinkRequestTo(Chainlink_Oracle_Alarm,req,Payment_to_Oracle);
     
-    
     }
-    function fulfill_randomness(uint256 randomness) external{
+
+  
+    //Function to decide who is the winner and transfer winnings
+    function fulfill_randomness(uint256 randomness) external {
         //Checks that Lottery is Calculating Winner
-        require(Lottery_Status==Lottery_state.Calculating);
+        require(Lottery_Status==Lottery_state.Calculating,"The Lottery hasn't chosen a winner yet.");
         
         //Checks that VRF randomness is completed
-        require(randomness>0);
+        require(randomness>0,"No random!");
         
-        //converts the randomized number to a value from 0 to players.length in order to pick a winner
-        uint256 index=randomness%players.length;
+        //Converts the randomized number to a value from 0 to players.length in order to pick a winner
+        uint256 index = randomness % players.length;
         
-        //transfer Total earnings of the lottery to the winning player
+        //Transfer Total earnings of the lottery to the winning player
         players[index].transfer(address(this).balance);
         
-        //clears out player list
+        //Clears out player list
         players = new address payable[](0);
         
-        //closes lottery
+        //Closes lottery
         Lottery_Status==Lottery_state.Closed;
+
+        //Uncomment to loop Lottery process
+        //start_Lottery();
     }
     
     
