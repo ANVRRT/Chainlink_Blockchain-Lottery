@@ -1,0 +1,261 @@
+{
+  "contractName": "get_Lottery",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "fulfill_random",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"fulfill_random\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Interfaces/ChainlinkLottery_Interface.sol\":\"get_Lottery\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Interfaces/ChainlinkLottery_Interface.sol\":{\"keccak256\":\"0x100024e42628d00dfbc47e994f381763a836626ccd5512d0d589307e9508940b\",\"urls\":[\"bzz-raw://205d783adb5a210e7b09ea36208120c2191863f965910979959b147d144366c4\",\"dweb:/ipfs/QmUJmD7EMMvdweQRkNtpWbPAeLM2E6eKyzbTiVDGEtwvDM\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "//This is for Educational Purposes Only\r\npragma solidity ^0.6.6;\r\n\r\n//External interface for Lottery randomness\r\ninterface get_Lottery{\r\n    function fulfill_random(uint) external;\r\n}",
+  "sourcePath": "C:\\Users\\User\\Documents\\Solidity_Projects\\Chainlink_Project\\contracts\\Interfaces\\ChainlinkLottery_Interface.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Interfaces/ChainlinkLottery_Interface.sol",
+    "exportedSymbols": {
+      "get_Lottery": [
+        2614
+      ]
+    },
+    "id": 2615,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2608,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "41:23:16"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 2614,
+        "linearizedBaseContracts": [
+          2614
+        ],
+        "name": "get_Lottery",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "c251ebf2",
+            "id": 2613,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "fulfill_random",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 2611,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2610,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 2613,
+                  "src": "165:4:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2609,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "165:4:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "164:6:16"
+            },
+            "returnParameters": {
+              "id": 2612,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "179:0:16"
+            },
+            "scope": 2614,
+            "src": "141:39:16",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2615,
+        "src": "113:70:16"
+      }
+    ],
+    "src": "41:142:16"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Interfaces/ChainlinkLottery_Interface.sol",
+      "exportedSymbols": {
+        "get_Lottery": [
+          2614
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".6"
+          ]
+        },
+        "id": 2608,
+        "name": "PragmaDirective",
+        "src": "41:23:16"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            2614
+          ],
+          "name": "get_Lottery",
+          "scope": 2615
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "c251ebf2",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "fulfill_random",
+              "overrides": null,
+              "scope": 2614,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 2613,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2609,
+                        "name": "ElementaryTypeName",
+                        "src": "165:4:16"
+                      }
+                    ],
+                    "id": 2610,
+                    "name": "VariableDeclaration",
+                    "src": "165:4:16"
+                  }
+                ],
+                "id": 2611,
+                "name": "ParameterList",
+                "src": "164:6:16"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2612,
+                "name": "ParameterList",
+                "src": "179:0:16"
+              }
+            ],
+            "id": 2613,
+            "name": "FunctionDefinition",
+            "src": "141:39:16"
+          }
+        ],
+        "id": 2614,
+        "name": "ContractDefinition",
+        "src": "113:70:16"
+      }
+    ],
+    "id": 2615,
+    "name": "SourceUnit",
+    "src": "41:142:16"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-10-17T03:35:02.588Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

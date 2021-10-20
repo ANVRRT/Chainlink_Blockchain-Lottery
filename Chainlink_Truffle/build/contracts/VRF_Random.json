@@ -1,0 +1,522 @@
+{
+  "contractName": "VRF_Random",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "randomNumber",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "getRandom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"getRandom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"randomNumber\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Interfaces/ChainlinkRandomness_Interface.sol\":\"VRF_Random\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Interfaces/ChainlinkRandomness_Interface.sol\":{\"keccak256\":\"0x4c4726731a7386a1c2d6098b06597002248c4840740a2c4a8c070a0166235d27\",\"urls\":[\"bzz-raw://667997ba4776d897ecb325b3668ef9fe49f08165e8eb1abacf82a50d8ea8a5b6\",\"dweb:/ipfs/QmVqzunmaAHGcz2efUVoVbC3pVMfSZPgRgvtYnuXmueWs2\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "//This is for Educational Purposes Only\r\npragma solidity ^0.6.6;\r\n\r\n//External interface for VRF randomness\r\ninterface VRF_Random {\r\n    function randomNumber(uint) external view returns (uint);\r\n    function getRandom (uint, uint) external;\r\n    \r\n}",
+  "sourcePath": "C:\\Users\\User\\Documents\\Solidity_Projects\\Chainlink_Project\\contracts\\Interfaces\\ChainlinkRandomness_Interface.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Interfaces/ChainlinkRandomness_Interface.sol",
+    "exportedSymbols": {
+      "VRF_Random": [
+        2631
+      ]
+    },
+    "id": 2632,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2616,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "41:23:17"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 2631,
+        "linearizedBaseContracts": [
+          2631
+        ],
+        "name": "VRF_Random",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "f970dd02",
+            "id": 2623,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "randomNumber",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 2619,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2618,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 2623,
+                  "src": "159:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2617,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "159:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "158:6:17"
+            },
+            "returnParameters": {
+              "id": 2622,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2621,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 2623,
+                  "src": "188:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2620,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "188:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "187:6:17"
+            },
+            "scope": 2631,
+            "src": "137:57:17",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "655b08eb",
+            "id": 2630,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getRandom",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 2628,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2625,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 2630,
+                  "src": "220:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2624,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "220:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2627,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 2630,
+                  "src": "226:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2626,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "226:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "219:12:17"
+            },
+            "returnParameters": {
+              "id": 2629,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "240:0:17"
+            },
+            "scope": 2631,
+            "src": "200:41:17",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 2632,
+        "src": "109:141:17"
+      }
+    ],
+    "src": "41:209:17"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Interfaces/ChainlinkRandomness_Interface.sol",
+      "exportedSymbols": {
+        "VRF_Random": [
+          2631
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".6"
+          ]
+        },
+        "id": 2616,
+        "name": "PragmaDirective",
+        "src": "41:23:17"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            2631
+          ],
+          "name": "VRF_Random",
+          "scope": 2632
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "f970dd02",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "randomNumber",
+              "overrides": null,
+              "scope": 2631,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 2623,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2617,
+                        "name": "ElementaryTypeName",
+                        "src": "159:4:17"
+                      }
+                    ],
+                    "id": 2618,
+                    "name": "VariableDeclaration",
+                    "src": "159:4:17"
+                  }
+                ],
+                "id": 2619,
+                "name": "ParameterList",
+                "src": "158:6:17"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 2623,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2620,
+                        "name": "ElementaryTypeName",
+                        "src": "188:4:17"
+                      }
+                    ],
+                    "id": 2621,
+                    "name": "VariableDeclaration",
+                    "src": "188:4:17"
+                  }
+                ],
+                "id": 2622,
+                "name": "ParameterList",
+                "src": "187:6:17"
+              }
+            ],
+            "id": 2623,
+            "name": "FunctionDefinition",
+            "src": "137:57:17"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "655b08eb",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getRandom",
+              "overrides": null,
+              "scope": 2631,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 2630,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2624,
+                        "name": "ElementaryTypeName",
+                        "src": "220:4:17"
+                      }
+                    ],
+                    "id": 2625,
+                    "name": "VariableDeclaration",
+                    "src": "220:4:17"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 2630,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2626,
+                        "name": "ElementaryTypeName",
+                        "src": "226:4:17"
+                      }
+                    ],
+                    "id": 2627,
+                    "name": "VariableDeclaration",
+                    "src": "226:4:17"
+                  }
+                ],
+                "id": 2628,
+                "name": "ParameterList",
+                "src": "219:12:17"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2629,
+                "name": "ParameterList",
+                "src": "240:0:17"
+              }
+            ],
+            "id": 2630,
+            "name": "FunctionDefinition",
+            "src": "200:41:17"
+          }
+        ],
+        "id": 2631,
+        "name": "ContractDefinition",
+        "src": "109:141:17"
+      }
+    ],
+    "id": 2632,
+    "name": "SourceUnit",
+    "src": "41:209:17"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.6+commit.6c089d02.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-10-17T03:35:02.590Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

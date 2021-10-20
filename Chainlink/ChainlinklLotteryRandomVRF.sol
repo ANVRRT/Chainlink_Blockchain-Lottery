@@ -6,7 +6,7 @@ import "https://github.com/alphachainio/chainlink-lottery/blob/master/ethereum/c
 
 //Import ChainlinkLottery_Interface.sol and ChainlinkGovernance_Interface.sol
 import {get_Lottery} from "./Interfaces/ChainlinkLottery_Interface.sol";
-import {ChainlinkGovernance} from "./Interfaces/ChainlinkGovernance_Interface.sol";
+import {ChainlinkGovernance_Interface} from "./Interfaces/ChainlinkGovernance_Interface.sol";
 
 //Random contract inherits from the VRFConsumerBase contract
 contract Random is VRFConsumerBase{
@@ -24,7 +24,7 @@ contract Random is VRFConsumerBase{
     mapping (bytes32 => uint) public requestIds;
     
     //Displays interfaces 
-    ChainlinkGovernance public governance;
+    ChainlinkGovernance_Interface public governance;
     
     //Creates variable to store the most recent random number generated
     uint256 public recent; 
@@ -40,7 +40,7 @@ contract Random is VRFConsumerBase{
     {
         hash = 0xced103054e349b8dfb51352f0f8fa9b5d20dde3d06f9f43cb2b85bc64b238205;
         fees = 0.1 * 10 ** 18; // 0.1 LINK
-        governance = ChainlinkGovernance(_governance);
+        governance = ChainlinkGovernance_Interface(_governance);
     }
 
     function getRandom(uint256 Seed, uint256 LotteryIdenitity) public {
