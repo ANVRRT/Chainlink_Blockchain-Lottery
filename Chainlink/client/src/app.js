@@ -74,7 +74,7 @@ class App extends Component {
     await Contract.methods.enter().send({
       from: account,
       value: Web3.utils.toWei(price, 'ether'),
-      gas: '21000'
+      gas: '1000000'
     });
     await this.handleFetchContract();
   };
@@ -143,7 +143,7 @@ class App extends Component {
         <br/>
         <Strong>{ playersCount }</Strong>
         <br/>
-        <Small>human being</Small>
+        <Small>Players</Small>
         <br/>
         Competing to win
         <br/>
@@ -158,9 +158,11 @@ class App extends Component {
     const { amount } = this.state;
     return(
       <form onSubmit={this.handleOnSubmit}>
-          <Small>Maybe it's your luck! Buy a ticket!</Small>
+          <Small>Maybe it's your lucky day! Buy a ticket!</Small>
+          <br/>
+          <Small>(One ticket costs 0.02 ETH)</Small>
           <Input type="number" step="0.001" value={amount} onChange={this.handleChange} placeholder="How much?" />
-        <Button type="submit">I'm join!</Button>
+        <Button type="submit">I'll join!</Button>
       </form>
     )
   }
@@ -176,7 +178,7 @@ class App extends Component {
     const { contract } = this.state;
     return(
       contract.winner ? (
-        alert(`Congrats, ${contract.winner} is running with happiness! :D`)
+        alert(`Congrats, ${contract.winner} is the winner! :D`)
       ) : false
     )
   }
@@ -191,7 +193,7 @@ class App extends Component {
 
   render = () => {
     //const { isLoading } = this.state;
-    console.log(Contract.methods.governance().call());
+    //console.log(Contract.methods.governance().call());
     if (!this.state.contractLoaded) {
       this.loadContract();
       this.setState({
