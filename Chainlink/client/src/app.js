@@ -1,12 +1,15 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment} from 'react';
 
 import Web3, { Contract } from './utils/web3';
 
 import Styles, { Button, Card, Content, Input } from './components';
 import { H2, Strong, Small } from './components/typo';
 
+// import MyComponent from './utils/wallet/wallet.js';
+
 class App extends Component {
   state = {
+    contractLoaded: false,
     isLoading: true,
     account: '',
     contract: {
@@ -17,6 +20,7 @@ class App extends Component {
     },
     amount: ''
   };
+
 
   componentDidMount = async () => {
     await this.handleFetchContract();
@@ -36,6 +40,7 @@ class App extends Component {
   }
 
   handleFetchContract = async () => {
+
     const accounts = await Web3.eth.getAccounts();
     const balance = await Web3.eth.getBalance(Contract.options.address);
     const manager = await Contract.methods.manager().call();
@@ -49,15 +54,27 @@ class App extends Component {
       }
     });
     this.handleLoading();
+    if (!this.state.contractLoaded) {
+      this.setState({
+        contract: {
+          manager: Contract.manager
+        }
+      });
+      this.state.contractLoaded = true;
+    }
   }
 
   handleOnSubmit = async event => {
+    var ticketPrice = 0.02;
+    var tickets = this.state.amount;
+    var price = (tickets * ticketPrice).toString()
     event.preventDefault();
     this.handleLoading();
-    const { account, amount } = this.state;
+    const { account} = this.state;
     await Contract.methods.enter().send({
       from: account,
-      value: Web3.utils.toWei(amount, 'ether')
+      value: Web3.utils.toWei(price, 'ether'),
+      gas: '21000'
     });
     await this.handleFetchContract();
   };
@@ -79,31 +96,36 @@ class App extends Component {
   };
   handleConnectToWallet = async () => {
     this.handleLoading();
-    const accounts = await Web3.eth.getAccounts();
-    await Contract.methods.connectWallet().send()({
-      from: accounts[0]
-    });
-    const wallet = await Contract.methods.connect().call();
-    this.setState({
-      contract: {
-        wallet
-      }
-    });
+    const ethereum = window.ethereum;
+    if(ethereum){
+      ethereum.request({ method: 'eth_requestAccounts' })
+      .then(accounts => {
+        this.setState({
+          account: accounts[0]
+        });
+      })
+    }else{
+      console.log('No ethereum browser detected');
+    }
     this.handleFetchContract();
+    
   };
   renderConnectWallet = () => {
-    const { account, contract } = this.state;
+    const { account} = this.state;
     return(
-      account === contract.manager && <Button type="button" onClick={this.handleConnectToWallet}>Connect to my wallet</Button>
+      account === "" && <Button type="button" onClick={this.handleConnectToWallet}>Connect to my wallet</Button>
     );
   }
   renderManager = () => {
-    const { contract } = this.state;
+
+    console.log(this.state.contract.manager);
+
+    //const { contract } = this.state;
     return(
       <H2>
-          This contract is managed by
+          This is your address
           <br/>
-          { contract.manager }
+          { this.state.contract.manager }
       </H2>
     );
   }
@@ -159,9 +181,23 @@ class App extends Component {
     )
   }
 
+  loadContract = () => {
+    this.setState({
+      contract: {
+        manager: Contract.manager
+      }
+    })
+  }
 
   render = () => {
     //const { isLoading } = this.state;
+    console.log(Contract.methods.governance().call());
+    if (!this.state.contractLoaded) {
+      this.loadContract();
+      this.setState({
+        contractLoaded: true
+      });
+    }
     return (
       <Fragment>
         <Styles/>
