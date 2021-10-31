@@ -42,9 +42,9 @@ class App extends Component {
   handleFetchContract = async () => {
 
     const accounts = await Web3.eth.getAccounts();
-    const balance = await Web3.eth.getBalance(Contract.options.address);
-    const manager = await Contract.methods.manager().call();
-    const players = await Contract.methods.getPlayers().call();
+    const balance = await Web3.eth.getBalance(Contract._address);
+    const manager = await Contract.methods.governance;
+    const players = await Contract.methods.player_count().call();
     this.setState({
       account: accounts[0],
       contract: {
@@ -57,7 +57,7 @@ class App extends Component {
     if (!this.state.contractLoaded) {
       this.setState({
         contract: {
-          manager: Contract.manager
+          manager: Contract.methods.governance
         }
       });
       this.state.contractLoaded = true;
@@ -95,7 +95,11 @@ class App extends Component {
     this.handleFetchContract();
   };
   handleConnectToWallet = async () => {
+
     this.handleLoading();
+    if (!this.state.contractLoaded) {
+      this.loadContract();
+    }
     const ethereum = window.ethereum;
     if(ethereum){
       ethereum.request({ method: 'eth_requestAccounts' })
@@ -111,14 +115,13 @@ class App extends Component {
     
   };
   renderConnectWallet = () => {
+
     const { account} = this.state;
     return(
       account === "" && <Button type="button" onClick={this.handleConnectToWallet}>Connect to my wallet</Button>
     );
   }
   renderManager = () => {
-
-    console.log(this.state.contract.manager);
 
     //const { contract } = this.state;
     return(
@@ -133,7 +136,7 @@ class App extends Component {
   renderStatus = () => {
     const { account, contract } = this.state;
     const currentAccount = account || 'Your address is not available now';
-    const playersCount = contract.players ? contract.players.length : 0;
+    const playersCount = contract.players ? Contract.player_count : 0;
     const contractBalance = contract.balance ? Web3.utils.fromWei(contract.balance, 'ether') : 0;
     return(
       <div>
@@ -155,22 +158,24 @@ class App extends Component {
   }
 
   renderForm = () => {
-    const { amount } = this.state;
-    return(
-      <form onSubmit={this.handleOnSubmit}>
-          <Small>Maybe it's your lucky day! Buy a ticket!</Small>
-          <br/>
-          <Small>(One ticket costs 0.02 ETH)</Small>
-          <Input type="number" step="0.001" value={amount} onChange={this.handleChange} placeholder="How much?" />
-        <Button type="submit">I'll join!</Button>
-      </form>
-    )
+    const { account, amount } = this.state;
+    if (account !== "") {
+      return(
+        <form onSubmit={this.handleOnSubmit}>
+            <Small>Maybe it's your lucky day! Buy a ticket!</Small>
+            <br/>
+            <Small>(One ticket costs 0.02 ETH)</Small>
+            <Input type="number" step="0.001" value={amount} onChange={this.handleChange} placeholder="How much?" />
+          <Button type="submit">I'll join!</Button>
+        </form>
+      )
+    }
   }
 
   renderPickWinner = () => {
     const { account, contract } = this.state;
     return(
-      account === contract.manager && <Button type="button" onClick={this.handleOnPickWinner}>Pick a WINNER!</Button>
+      account === contract.governance && <Button type="button" onClick={this.handleOnPickWinner}>Pick a WINNER!</Button>
     )
   }
 
@@ -185,8 +190,9 @@ class App extends Component {
 
   loadContract = () => {
     this.setState({
+      contractLoaded: true,
       contract: {
-        manager: Contract.manager
+        manager: Contract.governance
       }
     })
   }
@@ -194,12 +200,7 @@ class App extends Component {
   render = () => {
     //const { isLoading } = this.state;
     //console.log(Contract.methods.governance().call());
-    if (!this.state.contractLoaded) {
-      this.loadContract();
-      this.setState({
-        contractLoaded: true
-      });
-    }
+
     return (
       <Fragment>
         <Styles/>
