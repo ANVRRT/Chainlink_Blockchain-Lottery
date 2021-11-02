@@ -25,7 +25,7 @@ npm i react-dom
 * **Chainlink** is the completed dApp, with both Front-end and Back-end features already developed 
 * **Chainlink_Solidity** is the version that is built to be used in [Ethereum's Remix IDE](https://remix-project.org/).
   * This folder only contains the smart contracts and interfaces used to run the Back-end of the lottery
-* **Chainlink_Truffle** is the version that has a completed back-end, but lacks front-end features
+* **Chainlink_Truffle** is the version that has a completed Back-end, but lacks Front-end features
 
 ## License
 This application is provided under an Unlicense. See [LICENSE](https://github.com/J2304789/WDSI_Learning/blob/main/LICENSE) file for more details.
